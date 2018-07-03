@@ -85,7 +85,7 @@ client.on('message', message => {
 
   if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
   if (message.mentions.users.size < 1) return message.reply("**الرجاء منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الكيك**");
+  if(!reason) return message.reply ("**اكتبب سبب الكيك**");
   if (!message.guild.member(user)
   .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي**");
 
