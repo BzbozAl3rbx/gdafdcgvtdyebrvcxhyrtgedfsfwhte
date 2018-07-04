@@ -429,7 +429,32 @@ message.author.sendEmbed(embed)
 
 }
 });
+client.on("guildMemberAdd", (member) => {
+    let channel = member.guild.channels.get("463546076549349376");
+    if (!channel) {
+        console.log("!the channel id it's not correct");
+        return;
+    }
+    if (member.id == client.user.id) {
+        return;
+    }
+    console.log('-');
+    var guild;
+    while (!guild)
+        guild = client.guilds.get("459904762754760704");
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            if (dat[Inv])
+                if (dat[Inv] < Invite.uses) {
 
+channel.send(`**${member}
+- تم دعوته من قبل ${Invite.inviter}** \n`) }
+            dat[Inv] = Invite.uses;
+
+       });
+    });
+});
 
 
 
