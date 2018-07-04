@@ -440,7 +440,7 @@ client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
     var guild;
     while (!guild)
-        guild = client.guilds.find("name", "GoodIng Group")
+        guild = client.guilds.find("!                                                                       !", "GoodIng Group")
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -449,7 +449,7 @@ client.on("ready", () => {
     })   
 })
 client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.find('name', 'ask');
+    let channel = member.guild.channels.find('chat', 'ask');
     if (!channel) {
         console.log("!channel fails");
         return;
@@ -460,7 +460,7 @@ client.on("guildMemberAdd", (member) => {
     console.log('made it till here!');
     var guild;
     while (!guild)
-        guild = client.guilds.find("name", "GoodIng Group")
+        guild = client.guilds.find("!                                                                       !", "GoodIng Group")
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -474,7 +474,48 @@ client.on("guildMemberAdd", (member) => {
         })
     })
 })
+const Eris = require("eris");
+var S.M = new Eris("NDYzNzA5NDcxODMxNjIxNjMz.Dh7qzw.8OC284DxlW7g4WScXBzh_zEJ0dM");
+var S.M_id = "464212538876493824";
+                    var i = "0";
+                    var x = "0";
+S.M.on("voiceChannelJoin", (msg) => {
+    x++;
+    S.M.editChannel(codes_id, { name : "Chloè : " + x + " "});
+});
+S.M.on("voiceChannelLeave", (msg) => {
+    x--;
+    S.M.editChannel(codes_id, { name : "Chloè : " + x + " "});
+});
 
+S.M.on("messageCreate", (msg) => {
+    if(msg.author.id !== "406348958139678720") return codes.createMessage('__**This Command is only for the bot Owner**__');
+    if(msg.content === "!voice") {
+        let users = msg.channel.guild.members.map(m => m.user.id);
+        let messages = [];
+        messages.push(users);
+        setTimeout(function(){
+        while (i <= messages[0].length - 1) {
+            check = msg.channel.guild.members.get(messages[0][i]);
+        if(!check.voiceState.channelID){
+                i++;
+        }else{
+                x++;
+                i++;
+        }
+}
+    console.log(x);
+    S.M.createMessage(msg.channel.id, "Voice Online Members Now Are: **"+x+"** Members!");
+    S.M.editChannel(codes_id, { name : "Chloè : " + x + " "});
+    messages = [];
+}, 1);
+    }
+});
+
+
+  
+
+S.M.connect("NDYzNzA5NDcxODMxNjIxNjMz.Dh7qzw.8OC284DxlW7g4WScXBzh_zEJ0dM")
 
 
 
