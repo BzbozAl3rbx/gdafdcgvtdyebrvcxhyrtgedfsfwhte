@@ -291,7 +291,7 @@ client.on('guildMemberAdd', member => {
        var channel =member.guild.channels.find('name', 'chat')
   return channel.send(`**Welcome To Server Chloè ${member} .
 
-` **تم دعوته من قبل **${Invite.inviter} `
+
 @here **`)
 });
 client.on('message', msg => {
