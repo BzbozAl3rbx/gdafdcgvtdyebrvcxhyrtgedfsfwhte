@@ -429,7 +429,6 @@ message.author.sendEmbed(embed)
 
 }
 });
- const Discord = require('discord.js');
 const client = new Discord.Client();
  var dat = JSON.parse("{}");
 function forEachObject(obj, func) {
