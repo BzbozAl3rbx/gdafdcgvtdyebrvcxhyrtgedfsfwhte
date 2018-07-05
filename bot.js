@@ -466,8 +466,7 @@ client.on("guildMemberAdd", (member) => {
                     console.log(`${member} joined over ${Invite.inviter}'s invite ${Invite.code}`)
 channel.send(`**Welcome To Server Chloè ${member} .** 
 
-Invited By : ${Invite.inviter}`);   
-@here                  
+**Invited By :** ${Invite.inviter}`);                     
  }
  
             dat[Inv] = Invite.uses;
