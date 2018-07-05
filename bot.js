@@ -429,6 +429,8 @@ message.author.sendEmbed(embed)
 
 }
 });
+ const Discord = require('discord.js');
+const client = new Discord.Client();
  var dat = JSON.parse("{}");
 function forEachObject(obj, func) {
     Object.keys(obj).forEach(function (key) { func(key, obj[key]) })
@@ -436,7 +438,7 @@ function forEachObject(obj, func) {
 client.on("ready", () => {
     var guild;
     while (!guild)
-        guild = client.guilds.find("name", "!                                                                       !")
+        guild = client.guilds.find("name", "cute")
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -445,7 +447,7 @@ client.on("ready", () => {
     })
 })
 client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.find('name', 'chat');
+    let channel = member.guild.channels.find('name', 'welcome');
     if (!channel) {
         console.log("!channel fails");
         return;
@@ -456,7 +458,7 @@ client.on("guildMemberAdd", (member) => {
     console.log('made it till here!');
     var guild;
     while (!guild)
-        guild = client.guilds.find("name", "!                                                                       !")
+        guild = client.guilds.find("name", "cute")
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -464,11 +466,9 @@ client.on("guildMemberAdd", (member) => {
                 if (dat[Inv] < Invite.uses) {
                     console.log(3);
                     console.log(`${member} joined over ${Invite.inviter}'s invite ${Invite.code}`)
-channel.send(`**Welcome To ${member.guild.name} Server Chloè ${member} .** 
-
-Invited By : ${Invite.inviter}`);
-@here
-                }
+            channel.send(`**Welcome To ${member.guild.name} Server Chloè ${member} .** 
+            Invited By: ${Invite.inviter}`);
+ }
  
             dat[Inv] = Invite.uses;
         })
