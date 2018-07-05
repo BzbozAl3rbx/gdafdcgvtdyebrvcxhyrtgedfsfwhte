@@ -475,22 +475,22 @@ client.on("guildMemberAdd", (member) => {
     })
 })
 const Eris = require("eris");
-var S.M = new Eris("NDYzNzA5NDcxODMxNjIxNjMz.Dh7qzw.8OC284DxlW7g4WScXBzh_zEJ0dM");
-var S.M_id = "464212538876493824";
+var codes = new Eris("NDYzNzA5NDcxODMxNjIxNjMz.Dh77mA.7wrRUoWbhf6wG-OxjR-2p3qet5E");
+var codes_id = "464212538876493824";
                     var i = "0";
                     var x = "0";
-S.M.on("voiceChannelJoin", (msg) => {
+codes.on("voiceChannelJoin", (msg) => {
     x++;
     S.M.editChannel(codes_id, { name : "Chloè : " + x + " "});
 });
-S.M.on("voiceChannelLeave", (msg) => {
+codes.on("voiceChannelLeave", (msg) => {
     x--;
     S.M.editChannel(codes_id, { name : "Chloè : " + x + " "});
 });
 
-S.M.on("messageCreate", (msg) => {
+codes.on("messageCreate", (msg) => {
     if(msg.author.id !== "406348958139678720") return codes.createMessage('__**This Command is only for the bot Owner**__');
-    if(msg.content === "!voice") {
+    if(msg.content === "$voice") {
         let users = msg.channel.guild.members.map(m => m.user.id);
         let messages = [];
         messages.push(users);
@@ -505,7 +505,7 @@ S.M.on("messageCreate", (msg) => {
         }
 }
     console.log(x);
-    S.M.createMessage(msg.channel.id, "Voice Online Members Now Are: **"+x+"** Members!");
+    codes.createMessage(msg.channel.id, "Voice Online Members Now Are: **"+x+"** Members!");
     S.M.editChannel(codes_id, { name : "Chloè : " + x + " "});
     messages = [];
 }, 1);
@@ -515,7 +515,7 @@ S.M.on("messageCreate", (msg) => {
 
   
 
-S.M.connect("NDYzNzA5NDcxODMxNjIxNjMz.Dh7qzw.8OC284DxlW7g4WScXBzh_zEJ0dM")
+codes.connect("NDYzNzA5NDcxODMxNjIxNjMz.Dh77mA.7wrRUoWbhf6wG-OxjR-2p3qet5E")
 
 
 
