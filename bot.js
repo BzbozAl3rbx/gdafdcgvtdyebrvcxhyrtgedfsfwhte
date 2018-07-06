@@ -287,13 +287,6 @@ client.on('message', message => {
         message.author.send(`**هذا الرابط لـ5 اشخاص فقط و لمدة 24 ساعة **`)
     }
 });
-client.on('guildMemberAdd', member => {
-       var channel =member.guild.channels.find('name', 'chat')
-  return channel.send(`**Welcome To Server Chloè ${member} .
-
-
-@here **`)
-});
 client.on('message', msg => {
   if (msg.author.bot) return;
   let command = msg.content.split(" ")[0];
