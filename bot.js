@@ -473,29 +473,6 @@ client.on('voiceStateUpdate', (old, now) => {
   if (!size) return channel.setName(`Chloè : ${currentSize}`);
   if (currentSize !== size) channel.setName(`Voice Online: ${currentSize}`);
 });
-client.on('message', msg => {
-  if (msg.author.bot) return;
-  let command = msg.content.split(" ")[0];
-  let args = msg.content.split(" ").slice(1);
-
-    if(command === "امسح") {
- if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
-      var msg;
-      msg = parseInt();
-    
-    message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-    message.channel.sendMessage("", {embed: {
-      title: "تم مسح الرسائل",
-      color: 0x06DF00,
-      description: "**تم مسح الشات بنجاح .**",
-      footer: {
-        text: "Abdullah."
-      }
-    }}).then(msg => {msg.delete(3000)});
-                        }
-
-   
-});
 
 
 
