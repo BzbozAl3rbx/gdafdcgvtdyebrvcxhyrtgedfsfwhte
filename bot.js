@@ -473,7 +473,26 @@ client.on('voiceStateUpdate', (old, now) => {
   if (!size) return channel.setName(`Chloè : ${currentSize}`);
   if (currentSize !== size) channel.setName(`Voice Online: ${currentSize}`);
 });
+  client.on("message", message => {
 
+        if(command === "امسح") {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('? | **لا يوجد لديك صلاحية لمسح الشات**');
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "```php\nعدد الرسائل التي تم مسحها: " + textxt + "\n```").then(m => m.delete(3000",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل ",
+        footer: {
+          text: "©Abdullah"
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+
+     
+}); 
 
 
 
