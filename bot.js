@@ -482,7 +482,10 @@ client.on('voiceStateUpdate', (old, now) => {
       
       message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
       message.channel.sendMessage("", {embed: {
-        title: "```php\nعدد الرسائل التي تم مسحها: " + textxt + "\n```").then(m => m.delete(3000",
+    msg.delete().then
+    msg.delete().then
+    msg.channel.bulkDelete(textxt);
+        msg.channel.send("```php\nعدد الرسائل التي تم مسحها: " + textxt + "\n```").then(m => m.delete(3000));
         color: 0x06DF00,
         description: "تم مسح الرسائل ",
         footer: {
