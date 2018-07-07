@@ -370,7 +370,7 @@ if(tomute.hasPermission("MANAGE_MESSAGES"))return      message.channel.send('**�
     let mutetime = args[1];
     if(!mutetime) return message.reply("**يرجى تحديد وقت الميوت**");
     await(tomute.addRole(muterole.id));
-    message.channel.send(`**<@${tomute.id}> تم اعطاء ميوت بنجاح**`);
+    message.channel.send(`**<@${tomute.id}> تم اعطاء الميوت بنجاح**`);
 setTimeout(function(){
       tomute.removeRole(muterole.id);
       message.channel.send(`<@${tomute.id}> **انقضى الوقت وتم فك الميوت عن** `);
