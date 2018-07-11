@@ -435,7 +435,9 @@ client.on('voiceStateUpdate', (old, now) => {
   if (!size) return channel.setName(`Chloè : ${currentSize}`);
   if (currentSize !== size) channel.setName(`Voice Online: ${currentSize}`);
 });
-
+client.on('guildMemberAdd', (member) => {
+member.addRole(member.guild.roles.find('name', 'Chloè.'));
+});
 
 
 
