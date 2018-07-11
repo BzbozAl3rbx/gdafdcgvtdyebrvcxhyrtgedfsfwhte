@@ -270,23 +270,6 @@ client.on('message', msg => {
     }
 }
 });
-client.on('message', msg => { 
-        if (msg.content.startsWith(`!warn`)) {
-          if(!msg.member.hasPermission("MANAGE_MESSAGES")) return;
-           let args = msg.content.split(" ").slice(1);
-          if (!msg.mentions.members.first()) return msg.reply('**. الرجاء منشن الشخص**')
-          if (!args[1]) return msg.reply('**. الرجاء كتابة سبب الوارن**')
-          //غير اسم الروم او سوي روم بذا الاسم 
-          if (msg.guild.channels.find('name', 'warns')) {
-            //اذا غيرت فوق غير هنا كمان 
-            msg.guild.channels.find('name', 'warns').send(`
-          **تم اعطائك وارن**  ${msg.mentions.members.first()}
-          **: لأنك قمت بما يلي**
-         \` ${args.join(" ").split(msg.mentions.members.first(``)).slice('``')}\`
-          `)
-          }
-        }
-})
 client.on('message', message => {
     var args = message.content.split(/[ ]+/)
     if(message.content.includes('youtube.com/')){
@@ -372,7 +355,6 @@ client.on("message", message => {
 -    「 !ban 」  「 لأعطاء الشخص باند 」
 -    「 !kick 」  「 لأعطاء الشخص كيك 」
 -    「 !move all 」  「 لسحب جميع من في الرومات الى روم معين 」
--    「 !warn 」  「 لأعطاء الشخص انذار 」
 -    「 !mute 」  「 لأعطاء الشخص ميوت 」
 -    「 !unmute 」  「 لفك الميوت عن الشخص 」
 -    「 !bc 」  「 لإرسال رساله لجميع من في السيرفر 」
