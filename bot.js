@@ -280,10 +280,9 @@ client.on('message', msg => {
           if (msg.guild.channels.find('name', 'warns')) {
             //اذا غيرت فوق غير هنا كمان 
             msg.guild.channels.find('name', 'warns').send(`
-**تم اعطائك وارن**  ${msg.mentions.members.first()}
-**: لأنك قمت بما يلي**
-
-\` ${args.join(" ").split(msg.mentions.members.first(``)).slice('``')}\`
+          **تم اعطائك وارن**  ${msg.mentions.members.first()}
+          **: لأنك قمت بما يلي**
+         \` ${args.join(" ").split(msg.mentions.members.first(``)).slice('``')}\`
           `)
           }
         }
@@ -438,37 +437,7 @@ client.on('voiceStateUpdate', (old, now) => {
 client.on('guildMemberAdd', (member) => {
 member.addRole(member.guild.roles.find('name', 'Chloè.'));
 });
-  var prefix = "$";
 
-client.on('message', message => {
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
-  if(!message.channel.guild) return;
-  if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
-  if (message.mentions.users.size < 1) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-  
- 
-
-if (command == "warn") {
-    let say = new Discord.RichEmbed()
-    .setDescription(args.join("  "))
-    .setColor(0x831f18)
-    message.channel.sendEmbed(say);
-    client.channels.get("463533067760435200").send(`**=========================================**`)
-    client.channels.get("463533067760435200").send(`**New Warn !**`)
-    client.channels.get("463533067760435200").send({embed : say})
-    client.channels.get("463533067760435200").send(`**Admin : ${message.author.username}#${message.author.discriminator}**`)
-    client.channels.get("463533067760435200").send(`**In Channel : ${message.channel}**`)
-    message.delete();
-  }
-
-
-});
 
 
 
