@@ -190,7 +190,7 @@ if (message.member.voiceChannel == null) return message.channel.send(`**الرج
  message.guild.members.filter(m=>m.voiceChannel).forEach(m => {
  m.setVoiceChannel(author)
  })
- message.channel.send(`**تم سحب جميع الأعضاء إليك**`)
+ message.channel.send(`**تم سحب جميع الاعضاء إليك**`)
 
 
  }
