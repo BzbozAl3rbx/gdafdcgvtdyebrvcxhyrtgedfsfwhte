@@ -400,7 +400,7 @@ member.addRole(member.guild.roles.find('name', 'Chloè.'));
 });
 client.on('message', message => {
    if(!message.channel.guild) return;
-if(message.content.startsWith('امسح')) {
+if(message.content.startsWith('clear')) {
 if(!message.channel.guild) return message.channel.send('**This Command is Just For Servers**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**You Do not have permission** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
@@ -437,7 +437,6 @@ msg.delete();
 })
 }
 });
-
 
 
 
