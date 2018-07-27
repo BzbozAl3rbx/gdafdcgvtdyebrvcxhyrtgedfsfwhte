@@ -400,7 +400,7 @@ client.on('message', message => {
     });
 client.on('message', message => {
               if (!message.channel.guild) return;
-      if(message.content =='-count')
+              if (message.content.startsWith(prefix + "members")) {
       var SaifDz = new Discord.RichEmbed()
       .setThumbnail(message.author.avatarURL)
       .setFooter(message.author.username, message.author.avatarURL)
