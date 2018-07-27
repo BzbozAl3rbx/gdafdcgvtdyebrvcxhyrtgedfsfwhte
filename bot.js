@@ -376,7 +376,7 @@ client.on('message', message => {
     let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
     let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
     reaction1.on("collect", r => {
-    message.channel.send(`**☑ | تم إرسال البرودكاست الى ${message.guild.members.size} شخص بنجاح**`).then(m => m.delete(5000));
+    message.channel.send(`**☑ | تم إرسال البرودكاست إلى ${message.guild.members.size} شخص بنجاح**`).then(m => m.delete(5000));
     message.guild.members.forEach(m => {
     var bc = new
        Discord.RichEmbed()
