@@ -400,8 +400,8 @@ client.on('message', message => {
     });
 client.on('message', message => {
               if (!message.channel.guild) return;
-      if(message.content =='-members')
-      var Abdullah = new Discord.RichEmbed()
+      if(message.content =='-count')
+      var SaifDz = new Discord.RichEmbed()
       .setThumbnail(message.author.avatarURL)
       .setFooter(message.author.username, message.author.avatarURL)
       .setTitle(':Chlo: | Members info')
