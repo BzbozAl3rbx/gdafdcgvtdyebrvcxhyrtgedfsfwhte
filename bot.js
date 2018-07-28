@@ -103,30 +103,25 @@ client.on('message', message => {
   })
 }
 });
-client.on('message', message => {
-     var prefix ="!"; // هنا تقدر تغيير برفكس البوت
- if(message.content.startsWith(prefix +"server")){
-if(!message.channel.guild) return message.reply(' ');
-const millis = new Date().getTime() - message.guild.createdAt.getTime();
-const now = new Date();
-dateFormat(now, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
-const verificationLevels = ['None', 'Low', 'Medium', 'Insane', 'Extreme'];
-const days = millis / 1000 / 60 / 60 / 24;
-let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
-var embed  = new Discord.RichEmbed()
-.setAuthor(message.guild.name, message.guild.iconURL)
-.addField("🆔 Server ID:", message.guild.id,true)
-.addField("📅 Created On", message.guild.createdAt.toLocaleString(),true)
-.addField("👑 Owned by",${message.guild.owner.user.username}#${message.guild.owner.user.discriminator})
-.addField("👥 Members ",[${message.guild.memberCount}],true)
-.addField('💬 Channels ',**${message.guild.channels.filter(m => m.type === 'text').size}** + ' text | Voice  '+ **${message.guild.channels.filter(m => m.type === 'voice').size}**,true)
-.addField("🌍 Others " , message.guild.region,true)
-.addField(" 🔐 Roles ",**[${message.guild.roles.size}]** Role,true)
-.setColor('#f4d1a9')
-message.channel.sendEmbed(embed)
-
-}
-});
+client.on('message', function(msg) {
+    const prefix = '!'
+    if(msg.content.startsWith (prefix  + 'server')) {
+      let embed = new Discord.RichEmbed()
+      .setColor('RANDOM')
+      .setThumbnail(msg.guild.iconURL)
+      .setTitle(`Showing Details Of  **${msg.guild.name}*`)
+      .addField(':globe_with_meridians:** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
+      .addField(':medal:** __الرتب__**',`[** __${msg.guild.roles.size}__ **]`,true)
+      .addField(':red_circle:**__ عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
+      .addField(':large_blue_circle:**__ عدد الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
+      .addField(':pencil:**__ الرومات الكتابية__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
+      .addField(':microphone:**__ رومات الصوت__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
+      .addField(':crown:**__ الأونـر__**',`**${msg.guild.owner}**`,true)
+      .addField(':id:**__ ايدي السيرفر__**',`**${msg.guild.id}**`,true)
+      .addField(':date:**__ تم عمل السيرفر في__**',msg.guild.createdAt.toLocaleString())
+      msg.channel.send({embed:embed});
+    }
+  });
 client.on('message', message => {
     if (message.content.startsWith("!avatar")) {
         var mentionned = message.mentions.users.first();
@@ -162,7 +157,7 @@ client.on('message', message => {
   var prefix = '!';
   
   if (message.content.startsWith(prefix + "id")) {
-  if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات :x:`);
+  if(!message.channel.guild) return message.reply(`هذا الأمر فقط للسيرفرات :x:`);
    message.guild.fetchInvites().then(invs => {
       let member = client.guilds.get(message.guild.id).members.get(message.author.id);
       let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
