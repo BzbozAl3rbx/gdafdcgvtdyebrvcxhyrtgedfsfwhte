@@ -402,10 +402,10 @@ client.on('message', message =>{
     let args = message.content.split(' ');
     let prefix = '!';
     
-    if(args[0] === `${prefix}warn`) {
+    if(args[0] === `${prefix}say`) {
 
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("`You don't have enough permissions to use this command.`");
-    let botmessage = args.join("** **");
+    let botmessage = args.join(" ");
     message.delete().catch();
     message.channel.send(botmessage);
 });
