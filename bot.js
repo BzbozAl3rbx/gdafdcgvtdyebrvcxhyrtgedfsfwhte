@@ -398,14 +398,17 @@ client.on('message', message => {
     })
     }
     });
- client.on('message',function(message) {
-    let prefix = "!";
-let args = message.content.split(" ").slice(1).join(" ");
-if(message.content.startsWith(prefix + "say")) {
-if(!args) return;
-message.channel.send(`**# ${args}**`); // محطوط # عشان محد يستخدم البوت لتبنيد / طرد احد من السيرفر
-}
-}); 
+client.on('message', message =>{
+    let args = message.content.split(' ');
+    let prefix = '!';
+    
+    if(args[0] === `${prefix}warn`) {
+
+if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("`You don't have enough permissions to use this command.`");
+    let botmessage = args.join("** **");
+    message.delete().catch();
+    message.channel.send(botmessage);
+});
 
 
 
